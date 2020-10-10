@@ -13,7 +13,7 @@ for count in range(5):
 
     headers = {
         'x-rapidapi-host': "realtor.p.rapidapi.com",
-        'x-rapidapi-key': "ede51666fcmsh9785fa150d39b75p1787e9jsnf48a84ac05c4"
+        'x-rapidapi-key': "" # Your Rapid API key goes in here
     }
     response = requests.request("GET", url, headers=headers, params=querystring)
     temp = json.loads(response.text)
