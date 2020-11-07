@@ -56,27 +56,97 @@
 </head>
 
 <body>
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-  </li>
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
-    </div>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
-  </li>
-</ul>
+<!-- Navigation Bar Option One-->
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active Filters</a>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"> Property Type : {{ Property_Type }} </a>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"> Bedrooms : {{ Bedroom_Filter }} </a>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" href="#"> Bathrooms : {{ Bathroom_Filter }} </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link disabled" href="#"> Travel Mode : {{ Travel_Mode }} mile radius </a>
+      </li>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Again</button>
+    </ul>
+
+<!-- Navigation Bar Option Two-->
+<ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active Filters</a>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"> Property Type : {{ Property_Type }} </a>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"> Bedrooms : {{ Bedroom_Filter }} </a>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" href="#"> Bathrooms : {{ Bathroom_Filter }} </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link disabled" href="#"> Travel Mode : {{ Travel_Mode }} mile radius </a>
+      </li>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Again</button>
+    </ul>
+
+<!-- Navigation Bar Option Three-->
+<nav class="navbar navbar-dark bg-dark">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active Filters</a>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"> Property Type : {{ Property_Type }} </a>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"> Bedrooms : {{ Bedroom_Filter }} </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#"> Bathrooms : {{ Bathroom_Filter }} </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link disabled" href="#"> Travel Mode : {{ Travel_Mode }} mile radius </a>
+      </li>
+    </ul>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Again</button>
+</nav>
+
+<!-- Navigation Bar Option Three-->
+<nav class="navbar navbar-dark bg-primary">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Active Filters</a>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"> Property Type : {{ Property_Type }} </a>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#"> Bedrooms : {{ Bedroom_Filter }} </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#"> Bathrooms : {{ Bathroom_Filter }} </a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link disabled" href="#"> Travel Mode : {{ Travel_Mode }} mile radius </a>
+      </li>
+    </ul>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Again</button>
+</nav>
 
     <div class="container">
 

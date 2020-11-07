@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title> DECISION SUPPORT SYSTEM FOR REAL ESTATE</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+    body {
+      background-color: #f2f2f2;
+    }
+
+    .initial-img {
+      width: 60%;
+      /* margin: 40px auto; */
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 0px;
+    }
+
+    /* .form-check {
+      margin-bottom: 15px;
+    } */
+
+    .col-md-12 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <img src="../static/House.jpg" class="img-fluid initial-img" alt="Responsive image">
+      </div>
+    </div>
+
+    <h1 class="mb-3"> Let’s find a home that’s perfect for you. </h1>
+
+    <form action="{{ url_for('DSS_RealEstate')}}" method="post">
+      <!------------------------ Intrinsic Feature Bedroom -------------------------->
+      <div class="row">
+        <div class="col-md-12">
+          <p> How many bedrooms do you prefer ? </p>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bedroom" id="bedroomany" value="Any" checked>
+            <label class="form-check-label" for="bedroomany">
+              Any
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bedroom" id="bedroom1" value=1+">
+            <label class="form-check-label" for="bedroom1">
+              1+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bedroom" id="bedroom2" value="2+">
+            <label class="form-check-label" for="bedroom2">
+              2+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bedroom" id="bedroom3" value="3+">
+            <label class="form-check-label" for="bedroom3">
+              3+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bedroom" id="bedroom4" value="4+">
+            <label class="form-check-label" for="bedroom4">
+              4+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bedroom" id="bedroom5" value="5+">
+            <label class="form-check-label" for="bedroom5">
+              5+
+            </label>
+          </div>
+        </div>
+      </div>
+      <!------------------------ Intrinsic Feature Bathroom -------------------------->
+      <div class="row">
+        <div class="col-md-12">
+          <p> How many bathrooms do you prefer ? </p>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bathroom" id="bathroomany" value="Any" checked>
+            <label class="form-check-label" for="bathroomany">
+              Any
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bathroom" id="bathroom1" value=1+">
+            <label class="form-check-label" for="bathroom1">
+              1+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bathroom" id="bathroom2" value="2+">
+            <label class="form-check-label" for="bathroom2">
+              2+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bathroom" id="bathroom3" value="3+">
+            <label class="form-check-label" for="bathroom3">
+              3+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bathroom" id="bathroom4" value="4+">
+            <label class="form-check-label" for="bathroom4">
+              4+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bathroom" id="bathroom5" value="5+">
+            <label class="form-check-label" for="bathroom5">
+              5+
+            </label>
+          </div>
+        </div>
+      </div>
+      <!------------------------ Property Type -------------------------->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="propertytype"> What kind of Property do you prefer ?</label>
+            <select class="form-control" style="width:300px" id="propertytype" name="propertyTypeName">
+              <option value="Any">Any </option>
+              <option value="Condo">Condo</option>
+              <option value="Multi Family Home">Multi Family Home</option>
+              <option value="Single Family Home">Single Family Home</option>
+              <option value="Townhome">Townhome</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!------------------------ House Price -------------------------->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="propertytype"> What kind of Property do you prefer ?</label>
+            <select class="form-control" style="width:300px" id="houseprice" name="housePriceName">
+              <option value="Any">Any </option>
+              <option value="Greater than $100k">Greater than $100k</option>
+              <option value="Greater than $250k">Greater than $250k</option>
+              <option value="Greater than $500k">Greater than $500k</option>
+              <option value="Greater than $1M">Greater than $1M</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+      <!---------How important are the factors in the neighborhood of your new house?------>
+
+      <div class="row">
+        <div class="col-md-12">
+          <p> How important are the factors in the neighborhood of your new house? </p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="neighbourhoodfactors" id="1Notimportantatall"
+              value="1Notimportantatall">
+            <label class="form-check-label" for="1Notimportantatall">
+              1 - Not important at all
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="neighbourhoodfactors" id="2Notimportantatall"
+              value="2Notimportantatall">
+            <label class="form-check-label" for="2Notimportantatall">
+              2 - Not important at all
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="neighbourhoodfactors" id="3somewhatimportant"
+              value="3somewhatimportant" checked>
+            <label class="form-check-label" for="3somewhatimportant">
+              3 - Somewhat Important
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="neighbourhoodfactors" id="4veryimportant"
+              value="3somewhatimportant">
+            <label class="form-check-label" for="4veryimportant">
+              4 - Very Important
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="neighbourhoodfactors" id="5veryimportant"
+              value="3somewhatimportant">
+            <label class="form-check-label" for="5veryimportant">
+              5 - Very Important
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!---------How close do you want to want bars and restaurants to be to your house?------>
+
+      <div class="row">
+        <div class="col-md-12">
+          <p> How close do you want to want bars and restaurants to be to your house? </p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="distance" id="closewalkingdistance" value="0.5">
+            <label class="form-check-label" for="closebikingordrivingdistance">
+              Close Walking Distance (0.5 Miles)
+            </label>
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="distance" id="closebikingordrivingdistance" value="2.5">
+            <label class="form-check-label" for="closebikingordrivingdistance">
+              Close Biking or Driving Distance (2.5 Miles)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="distance" id="drivingdistance" value="5.0" checked>
+            <label class="form-check-label" for="drivingdistance">
+              Driving Distance (5.0 Miles)
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 mt-3 mb-5">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
