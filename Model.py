@@ -70,8 +70,10 @@ structure = {
 
 # read in a dictionary and replace all values with the integer value of the user response
 def convert_responses(Environmental_Features):
+    env_values = ['neighbourhoodfactors', 'HouseSize', 'Housebudget', 'BusStop', 'Metro', 'Restaurants', 'Bars', 'School_quality', 'CommunityCenter', 'Library']
     for key in Environmental_Features:
-        Environmental_Features[key] = [int(Environmental_Features[key][0])]
+        if key in env_values:
+            Environmental_Features[key] = [int(Environmental_Features[key][0])]
     return Environmental_Features
 
 # Update the blank structure with the integer ratings the users chose for environmental features
