@@ -7,22 +7,42 @@ Created on Sun Nov  1 14:28:34 2020
 
 # =============================================================================
 # Sample dict
-# {'bedroom': '2+', 
-#  'bathroom': '2+', 
-#  'propertyTypeName': 'Condo', 
-#  'housePriceName': 'Greater than $100k', 
-#  'neighbourhoodfactors': '3somewhatimportant', 
-#  'distance': '5.0'} 
+#{'bedroom': 'Any', 
+# 'bathroom': 'Any', 
+# 'propertyTypeName': 'Any', 
+# 'housePriceName': 'Any', 
+# 'neighbourhoodfactors': '3somewhatimportant', 
+# 'HouseSize': '3somewhatimportant', 
+# 'Housebudget': '3somewhatimportant', 
+# 'BusStop': '3somewhatimportant', 
+# 'Metro': '3somewhatimportant', 
+# 'Restaurants': '3somewhatimportant', 
+# 'Bars': '3somewhatimportant', 
+# 'School_quality': '3somewhatimportant', 
+# 'CommunityCenter': '3somewhatimportant', 
+# 'Library': '3somewhatimportant', 
+# 'distance': '5.0'}
+#
 # =============================================================================
 
-fake_dict = {'bedroom': '2+', 
-  'bathroom': '1+', 
-  'propertyTypeName': 'Condo', 
-  'housePriceName': 'Greater than $100k', 
-  'neighbourhoodfactors': '3somewhatimportant', 
-  'distance': '5.0'}
+samp_dict = {'bedroom': '2+', 
+ 'bathroom': 'Any', 
+ 'propertyTypeName': 'Single Family Home', 
+ 'housePriceName': 'Any', 
+ 'neighbourhoodfactors': '3somewhatimportant', 
+ 'HouseSize': '3somewhatimportant', 
+ 'Housebudget': '3somewhatimportant', 
+ 'BusStop': '3somewhatimportant', 
+ 'Metro': '3somewhatimportant', 
+ 'Restaurants': '3somewhatimportant', 
+ 'Bars': '3somewhatimportant', 
+ 'School_quality': '3somewhatimportant', 
+ 'CommunityCenter': '3somewhatimportant', 
+ 'Library': '3somewhatimportant', 
+ 'distance': '5.0'}
 
-def PropertyFilter(value_dict):
+
+def PropertyFilter(page1_dict):
     import pandas as pd
     
     ## pull correct dataset
@@ -37,29 +57,32 @@ def PropertyFilter(value_dict):
         # Currently doesn't support comma-formatted numbers
         import re
         
-        digit = float(re.search("\d+(\.\d+)*", value)[0])
+        digit = re.search("\d+(\.\d+)*", value)
         if digit:
-            return digit
+            return float(digit[0])
         else: 
             return 0
     
     ## find which listing we are working with 
-    listing_dist = float(digit_extractor(value_dict['distance']))
+    listing_dist = float(digit_extractor(page1_dict['distance']))
     listing_csv=  listings %(listing_dist)
     
     dat = pd.read_csv(listing_csv)
     
     ## filters
     # Extract digits from dictionary values
-    bedrooms = digit_extractor(value_dict['bedroom'])
-    bathrooms = digit_extractor(value_dict['bathroom'])
-    propType = [value_dict['propertyTypeName'].lower()]
-    price = digit_extractor(value_dict['housePriceName']) * 1000
+    bedrooms = digit_extractor(page1_dict['bedroom'])
+    bathrooms = digit_extractor(page1_dict['bathroom'])
+    price = digit_extractor(page1_dict['housePriceName']) * 1000
+    
+    page1_dict['propertyTypeName'] = page1_dict['propertyTypeName'].replace(" Home", "")
+    propType = [page1_dict['propertyTypeName'].lower().replace(" ","_")]
     
     if price == 0:
         price = 9999999999999999999
         
-    if propType == 'any':
+    if propType == ['any']:
+        print("yay")
         propType = list(dat.prop_type.unique())
     
     f_dat = dat[(dat['beds'] >= bedrooms) & 
@@ -74,4 +97,4 @@ def PropertyFilter(value_dict):
     
     
     
-m= PropertyFilter(fake_dict)
+m= PropertyFilter(samp_dict)
