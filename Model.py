@@ -184,7 +184,7 @@ def return_unpacked_weights(weights):
     unpack_weights(weights)
     
     for key in unpacked_weights:
-        if key in field_name_xwalk.keys():
+        if key in list(field_name_xwalk):
             unpacked_weights[field_name_xwalk[key]] = unpacked_weights[key] 
             del unpacked_weights[key]  
             
