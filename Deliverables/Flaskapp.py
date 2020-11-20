@@ -29,16 +29,16 @@ def DSS_Form_Page2():
     for k, v in Environmental_Features.items():
         session_data[k] = v
     print(session_data)
-    if PropertyFilter(session_data) == "There are no listings that fit your criteria":
-        return render_template("DSS_Redirected.html")
-    else:
-        create_ranked_data(PropertyFilter(session_data), Environmental_Features)
-        return render_template('Real_Estate_Listings_Dynamic_Final.html',
-                               Property_Type=session_data['propertyTypeName'],
-                               Bedroom_Filter=session_data["bedroom"],
-                               Bathroom_Filter=session_data['bathroom'],
-                               Travel_Mode=session_data['distance'],
-                               housePrice=session_data['housePriceName'])
+    # if PropertyFilter(session_data) == "There are no listings that fit your criteria":
+    #     return render_template("DSS_Redirected.html")
+    # else:
+    create_ranked_data(PropertyFilter(session_data), Environmental_Features)
+    return render_template('Real_Estate_Listings_Dynamic_Final.html',
+                           Property_Type=session_data['propertyTypeName'],
+                           Bedroom_Filter=session_data["bedroom"],
+                           Bathroom_Filter=session_data['bathroom'],
+                           Travel_Mode=session_data['distance'],
+                           housePrice=session_data['housePriceName'])
 
 
 # Rank1_Price
