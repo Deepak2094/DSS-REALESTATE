@@ -41,7 +41,7 @@ field_name_xwalk = {        "Housebudget":"price",
 							"Metro":"MetroDistance",
 							"CommunityCenter":"CCDistance",
 							"Library":"LIBDistance",
-							"School_quality":"SchoolRating",
+							"School_quality":"RATING",
 							"Restaurants":"Mean_Rating_restaurants",
 							"Bars":"Mean_Rating_bars" }
 
@@ -234,7 +234,7 @@ def create_ranked_data(df, Environmental_Features):
     df = df.loc[:,filtered_headers]
     
     # list which model features need to be ranked by high or low values
-    high_vals = ["size_in_sqft","SchoolRating","Mean_Rating_restaurants","Mean_Rating_bars"] # fields where high vals are important
+    high_vals = ["size_in_sqft","RATING","Mean_Rating_restaurants","Mean_Rating_bars"] # fields where high vals are important
     low_vals = [x for x in required_headers if x not in high_vals] # fields where low vals are important
     
     # assign a numeric value based on how high or low the SDVF is
