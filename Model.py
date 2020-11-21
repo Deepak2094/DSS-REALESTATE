@@ -71,7 +71,7 @@ structure = {
 # read in a dictionary and replace all values with the integer value of the user response
 def convert_responses(Environmental_Features):
     env_values = ['neighbourhoodfactors', 'HouseSize', 'Housebudget', 'BusStop', 'Metro', 'Restaurants', 'Bars', 'School_quality', 'CommunityCenter', 'Library']
-    for key in Environmental_Features:
+    for key in Environmental_Features.copy():
         if key in env_values:
             Environmental_Features[key] = [int(Environmental_Features[key][0])]
     return Environmental_Features
@@ -80,7 +80,7 @@ def convert_responses(Environmental_Features):
 def update_structure(structure, Environmental_Features):
     if type(structure)==type({}):
         # for each list element in the structure:
-        for key in structure:
+        for key in structure.copy():
             # if the list has another layer, update current level and pass the next 
             if type(structure[key]) == list and len(structure[key])>1:
                 structure[key][0] = Environmental_Features[key][0]
@@ -96,12 +96,12 @@ def update_structure(structure, Environmental_Features):
 def distribute_weights(tmp_dict):
     
     # crosswalk the ratings to a numeric value and sum them up for that level
-    sum_values = sum([rating_xwalk[tmp_dict[x][0]] for x in tmp_dict]) 
+    sum_values = sum([rating_xwalk[tmp_dict[x][0]] for x in tmp_dict.copy()]) 
     distributed_weights = {}
     
     # make the numeric values proportional for that level
         # i.e. level ratings of 1, 2, and 5 become 0.0, 0.2, 0.8
-    for x in tmp_dict:
+    for x in tmp_dict.copy():
         if rating_xwalk[tmp_dict[x][0]] == 0: # account for zero division
             weight = 0
         else:
@@ -125,7 +125,7 @@ def assign_weights(tmp_dict):
     
     if type(tmp_dict)==type({}):
         tmp_dict = replace_with_weights(tmp_dict)
-        for key in tmp_dict:
+        for key in tmp_dict.copy():
             if type(tmp_dict[key]) == list and len(tmp_dict[key])>1:
                 assign_weights(tmp_dict[key][1])
             else:
@@ -141,7 +141,7 @@ def trickle_down(val):
     # if the value passed to trickle down is a dictionary, continue down the structure
     # for each key in the dictionary
     if type(val)==type({}):
-        for key in val:
+        for key in val.copy():
             trickle_down(val[key])
             
     # if the value passed to trickle_down is a list with another level (i.e. len > 1)
@@ -173,7 +173,7 @@ def return_unpacked_weights(weights):
     # update unpacked weights dictionary with values from weights dictionary
     def unpack_weights(d):
         if type(d)==type({}):
-            for k in d:
+            for k in d.copy():
                 unpacked_weights.update({k:d[k][0]})
                 unpack_weights(d[k])
         if type(d)==type([]) and len(d)>1:
@@ -183,7 +183,7 @@ def return_unpacked_weights(weights):
     
     unpack_weights(weights)
     
-    for key in unpacked_weights:
+    for key in unpacked_weights.copy():
         if key in list(field_name_xwalk):
             unpacked_weights[field_name_xwalk[key]] = unpacked_weights[key] 
             del unpacked_weights[key]  
