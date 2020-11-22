@@ -48,6 +48,18 @@
     </div>
 
     <h1 class="mb-3"> Let’s find a home that’s perfect for you. </h1>
+    {% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+		  <div class="alert alert-warning alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+			{{message}}
+		  </div>
+		{% endfor %}
+	  {% endif %}
+	{% endwith %}
+
+	{% block body %}{% endblock %}
 
     <form action="{{ url_for('DSS_Form_Page1')}}" method="post">
       <!------------------------ Q1 - Intrinsic Feature Bedroom Filter -------------------------->

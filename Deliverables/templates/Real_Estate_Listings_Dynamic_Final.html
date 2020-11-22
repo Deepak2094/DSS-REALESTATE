@@ -82,7 +82,7 @@
 
 <body>
 <!-- Navigation Bar Option One-->
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs" onload="callSetTimeout()">
       <li class="nav-item">
         <a class="nav-link active" href="#">Active Filters</a>
       </li>
@@ -96,7 +96,7 @@
         <a class="nav-link" href="#"> Bedrooms : {{ Bedroom_Filter }} </a>
       </li>
      <li class="nav-item">
-        <a class="nav-link" href="#"> Bathrooms : {{ Bathroom_Filter }} </a>
+        <a class="nav-link" href="#"> Bath : {{ Bathroom_Filter }} </a>
       </li>
         <li class="nav-item">
         <a class="nav-link disabled" href="#"> Travel Mode : {{ Travel_Mode }} mile radius </a>
@@ -118,30 +118,37 @@
                     <div class="col-md-12 info-box">
                         <div class="row address-bar mt-1">
                             <div class="col-md-4 mb-0">
-                                <div class="title">{{Rank1_Price}}</div>
+                                <div class="title"> $ {{Rank1_Price}}</div>
                             </div>
                             <div class="col-md-8 text-right">
-                                <div class="features">[{{Rank1_beds}}bds | {{Rank1_baths}} bath | {{Rank1_size}}sqft]</div>
+                                <div class="features">[{{Rank1_beds}}bds | {{Rank1_baths}}bath | {{Rank1_size}}sqft]</div>
                             </div>
                             <div class="col-md-12">
                                 <div class="address">{{Rank1_address}}</div>
                             </div>
+                            <div class="col-md-6 info-title"> Agent : {{Rank1_Agent_name}}</div>
+                            <div class="col-md-6 info-content" input type="tel"> {{Rank1_phnumber}}</div>
                         </div>
                         <div class="row mt-3">
+
                             <div class="col-md-6 info-title"> Nearest School : </div>
                             <div class="col-md-6 info-content"> {{Rank1_School}} </div>
                             <div class="col-md-6 info-title"> Metro Stop: </div>
-                            <div class="col-md-6 info-content"> {{Rank1_Metro}} away </div>
+                            <div class="col-md-6 info-content"> {{Rank1_Metro}} miles away </div>
                             <div class="col-md-6 info-title"> Bus Stop : </div>
-                            <div class="col-md-6 info-content"> {{Rank1_BusStop}} away </div>
+                            <div class="col-md-6 info-content"> {{Rank1_BusStop}} miles away </div>
                             <div class="col-md-6 info-title"> CommunityCenter: </div>
                             <div class="col-md-6 info-content"> {{Rank1_CommunityCenter}} </div>
                             <div class="col-md-6 info-title"> Nearest Library: </div>
                             <div class="col-md-6 info-content"> {{Rank1_Library}} </div>
-                            <div class="col-md-6 info-title"> Nearest Top Rated Restaurant: </div>
+                            <div class="col-md-6 info-title"> Top Rated Restaurant: </div>
                             <div class="col-md-6 info-content"> {{Rank1_Restaurant}} </div>
-                            <div class="col-md-6 info-title"> Nearest Top Rated Bars: </div>
+                            <div class="col-md-6 info-title"> Top Rated Bar: </div>
                             <div class="col-md-6 info-content"> {{Rank1_Bars}} </div>
+                            <div class="col-md-6 info-title"> More Restaurants: </div>
+                            <div class="col-md-6 info-content"> {{Rank1_MoreRestaurants}} </div>
+                            <div class="col-md-6 info-title"> More Bars: </div>
+                            <div class="col-md-6 info-content"> {{Rank1_MoreBars}} </div>
                         </div>
                     </div>
                 </div>
@@ -155,7 +162,7 @@
                     <div class="col-md-12 info-box">
                         <div class="row address-bar mt-1">
                             <div class="col-md-4 mb-0">
-                                <div class="title">{{Rank2_Price}}</div>
+                                <div class="title">${{Rank2_Price}}</div>
                             </div>
                             <div class="col-md-8 text-right">
                                 <div class="features">[{{Rank2_beds}}bds | {{Rank2_baths}}bath | {{Rank2_size}} sqft]</div>
@@ -163,22 +170,28 @@
                             <div class="col-md-12">
                                 <div class="address">{{Rank2_address}}</div>
                             </div>
+                            <div class="col-md-6 info-title"> Agent : {{Rank2_Agent_name}}</div>
+                            <div class="col-md-6 info-content" input type="tel"> {{Rank2_phnumber}}</div>
                         </div>
                         <div class="row mt-3">
                            <div class="col-md-6 info-title"> Nearest School : </div>
                             <div class="col-md-6 info-content"> {{Rank2_School}} </div>
                             <div class="col-md-6 info-title"> Metro Stop: </div>
-                            <div class="col-md-6 info-content"> {{Rank2_Metro}} away </div>
+                            <div class="col-md-6 info-content"> {{Rank2_Metro}} miles away </div>
                             <div class="col-md-6 info-title"> Bus Stop : </div>
-                            <div class="col-md-6 info-content"> {{Rank2_BusStop}} away </div>
+                            <div class="col-md-6 info-content"> {{Rank2_BusStop}} miles away </div>
                             <div class="col-md-6 info-title"> CommunityCenter: </div>
                             <div class="col-md-6 info-content"> {{Rank2_CommunityCenter}} </div>
                             <div class="col-md-6 info-title"> Nearest Library: </div>
                             <div class="col-md-6 info-content"> {{Rank2_Library}} </div>
-                            <div class="col-md-6 info-title"> Nearest Top Rated Restaurant: </div>
+                            <div class="col-md-6 info-title"> Top Rated Restaurant: </div>
                             <div class="col-md-6 info-content"> {{Rank2_Restaurant}} </div>
-                            <div class="col-md-6 info-title"> Nearest Top Rated Bars: </div>
+                            <div class="col-md-6 info-title"> Top Rated Bar: </div>
                             <div class="col-md-6 info-content"> {{Rank2_Bars}} </div>
+                            <div class="col-md-6 info-title"> More Restaurant: </div>
+                            <div class="col-md-6 info-content"> {{Rank2_MoreRestaurants}} </div>
+                            <div class="col-md-6 info-title"> More Bars: </div>
+                            <div class="col-md-6 info-content"> {{Rank2_MoreBars}} </div>
                         </div>
                     </div>
                 </div>
@@ -192,7 +205,7 @@
                     <div class="col-md-12 info-box">
                         <div class="row address-bar mt-1">
                             <div class="col-md-4 mb-0">
-                                <div class="title">{{Rank3_Price}}</div>
+                                <div class="title">${{Rank3_Price}}</div>
                             </div>
                             <div class="col-md-8 text-right">
                                 <div class="features">[{{Rank3_beds}}bds | {{Rank3_baths}}bath | {{Rank3_size}} sqft]</div>
@@ -200,22 +213,28 @@
                             <div class="col-md-12">
                                 <div class="address">{{Rank3_address}}</div>
                             </div>
+                            <div class="col-md-6 info-title"> Agent : {{Rank3_Agent_name}}</div>
+                            <div class="col-md-6 info-content" input type="tel"> {{Rank3_phnumber}}</div>
                         </div>
                         <div class="row mt-3">
                         <div class="col-md-6 info-title"> Nearest School : </div>
                             <div class="col-md-6 info-content"> {{Rank3_School}} </div>
                             <div class="col-md-6 info-title"> Metro Stop: </div>
-                            <div class="col-md-6 info-content"> {{Rank3_Metro}} away </div>
+                            <div class="col-md-6 info-content"> {{Rank3_Metro}} miles away </div>
                             <div class="col-md-6 info-title"> Bus Stop : </div>
-                            <div class="col-md-6 info-content"> {{Rank3_BusStop}} away </div>
+                            <div class="col-md-6 info-content"> {{Rank3_BusStop}} miles away </div>
                             <div class="col-md-6 info-title"> CommunityCenter: </div>
                             <div class="col-md-6 info-content"> {{Rank3_CommunityCenter}} </div>
                             <div class="col-md-6 info-title"> Nearest Library: </div>
                             <div class="col-md-6 info-content"> {{Rank3_Library}} </div>
-                            <div class="col-md-6 info-title"> Nearest Top Rated Restaurant: </div>
+                            <div class="col-md-6 info-title"> Top Rated Restaurant: </div>
                             <div class="col-md-6 info-content"> {{Rank3_Restaurant}} </div>
-                            <div class="col-md-6 info-title"> Nearest Top Rated Bars: </div>
+                            <div class="col-md-6 info-title"> Top Rated Bar: </div>
                             <div class="col-md-6 info-content"> {{Rank3_Bars}} </div>
+                            <div class="col-md-6 info-title"> More Restaurants: </div>
+                            <div class="col-md-6 info-content"> {{Rank3_MoreRestaurants}} </div>
+                            <div class="col-md-6 info-title"> More Bars: </div>
+                            <div class="col-md-6 info-content"> {{Rank3_MoreBars}} </div>
                         </div>
                     </div>
                 </div>
@@ -229,7 +248,7 @@
                     <div class="col-md-12 info-box">
                         <div class="row address-bar mt-1">
                             <div class="col-md-4 mb-0">
-                                <div class="title">{{Rank4_Price}}</div>
+                                <div class="title">${{ Rank4_Price}}</div>
                             </div>
                             <div class="col-md-8 text-right">
                                 <div class="features">[{{Rank4_beds}}bds | {{Rank4_baths}}bath | {{Rank4_size}} sqft]</div>
@@ -237,22 +256,28 @@
                             <div class="col-md-12">
                                 <div class="address">{{Rank4_address}}</div>
                             </div>
+                            <div class="col-md-6 info-title"> Agent : {{Rank4_Agent_name}}</div>
+                            <div class="col-md-6 info-content" input type="tel"> {{Rank4_phnumber}}</div>
                         </div>
                         <div class="row mt-3">
                         <div class="col-md-6 info-title"> Nearest School : </div>
                             <div class="col-md-6 info-content"> {{Rank4_School}} </div>
                             <div class="col-md-6 info-title"> Metro Stop: </div>
-                            <div class="col-md-6 info-content"> {{Rank4_Metro}} away </div>
+                            <div class="col-md-6 info-content"> {{Rank4_Metro}} miles away </div>
                             <div class="col-md-6 info-title"> Bus Stop : </div>
-                            <div class="col-md-6 info-content"> {{Rank4_BusStop}} away </div>
+                            <div class="col-md-6 info-content"> {{Rank4_BusStop}} miles away </div>
                             <div class="col-md-6 info-title"> CommunityCenter: </div>
                             <div class="col-md-6 info-content"> {{Rank4_CommunityCenter}} </div>
                             <div class="col-md-6 info-title"> Nearest Library: </div>
                             <div class="col-md-6 info-content"> {{Rank4_Library}} </div>
-                            <div class="col-md-6 info-title"> Nearest Top Rated Restaurant: </div>
+                            <div class="col-md-6 info-title"> Top Rated Restaurant: </div>
                             <div class="col-md-6 info-content"> {{Rank4_Restaurant}} </div>
-                            <div class="col-md-6 info-title"> Nearest Top Rated Bars: </div>
+                            <div class="col-md-6 info-title"> Top Rated Bar: </div>
                             <div class="col-md-6 info-content"> {{Rank4_Bars}} </div>
+                            <div class="col-md-6 info-title"> More Restaurants: </div>
+                            <div class="col-md-6 info-content"> {{Rank4_MoreRestaurants}} </div>
+                            <div class="col-md-6 info-title"> More Bars: </div>
+                            <div class="col-md-6 info-content"> {{Rank4_MoreBars}} </div>
                         </div>
                     </div>
                 </div>
@@ -266,7 +291,7 @@
                     <div class="col-md-12 info-box">
                         <div class="row address-bar mt-1">
                             <div class="col-md-4 mb-0">
-                                <div class="title">{{Rank5_Price}}</div>
+                                <div class="title">${{Rank5_Price}}</div>
                             </div>
                             <div class="col-md-8 text-right">
                                 <div class="features">[{{Rank5_beds}}bds | {{Rank5_baths}}bath | {{Rank5_size}} sqft]</div>
@@ -274,22 +299,28 @@
                             <div class="col-md-12">
                                 <div class="address">{{Rank5_address}}</div>
                             </div>
+                            <div class="col-md-6 info-title"> Agent : {{Rank5_Agent_name}}</div>
+                            <div class="col-md-6 info-content" input type="tel"> {{Rank5_phnumber}}</div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-6 info-title"> Nearest School : </div>
                             <div class="col-md-6 info-content"> {{Rank5_School}} </div>
                             <div class="col-md-6 info-title"> Metro Stop: </div>
-                            <div class="col-md-6 info-content"> {{Rank5_Metro}} away </div>
+                            <div class="col-md-6 info-content"> {{Rank5_Metro}} miles away </div>
                             <div class="col-md-6 info-title"> Bus Stop : </div>
-                            <div class="col-md-6 info-content"> {{Rank5_BusStop}} away </div>
+                            <div class="col-md-6 info-content"> {{Rank5_BusStop}} miles away </div>
                             <div class="col-md-6 info-title"> CommunityCenter: </div>
                             <div class="col-md-6 info-content"> {{Rank5_CommunityCenter}} </div>
                             <div class="col-md-6 info-title"> Nearest Library: </div>
                             <div class="col-md-6 info-content"> {{Rank5_Library}} </div>
-                            <div class="col-md-6 info-title"> Nearest Top Rated Restaurant: </div>
+                            <div class="col-md-6 info-title"> Top Rated Restaurant: </div>
                             <div class="col-md-6 info-content"> {{Rank5_Restaurant}} </div>
-                            <div class="col-md-6 info-title"> Nearest Top Rated Bars: </div>
+                            <div class="col-md-6 info-title"> Top Rated Bar: </div>
                             <div class="col-md-6 info-content"> {{Rank5_Bars}} </div>
+                            <div class="col-md-6 info-title"> More Restaurants: </div>
+                            <div class="col-md-6 info-content"> {{Rank5_MoreRestaurants}} </div>
+                            <div class="col-md-6 info-title"> More Bars: </div>
+                            <div class="col-md-6 info-content"> {{Rank5_MoreBars}} </div>
                         </div>
                     </div>
                 </div>
@@ -303,7 +334,7 @@
                     <div class="col-md-12 info-box">
                         <div class="row address-bar mt-1">
                             <div class="col-md-4 mb-0">
-                                <div class="title">{{Rank6_Price}}</div>
+                                <div class="title">${{Rank6_Price}}</div>
                             </div>
                             <div class="col-md-8 text-right">
                                 <div class="features">[{{Rank6_beds}}bds | {{Rank6_baths}}bath | {{Rank6_size}} sqft]</div>
@@ -311,22 +342,28 @@
                             <div class="col-md-12">
                                 <div class="address">{{Rank6_address}}</div>
                             </div>
+                            <div class="col-md-6 info-title"> Agent : {{Rank6_Agent_name}}</div>
+                            <div class="col-md-6 info-content" input type="tel"> {{Rank6_phnumber}}</div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-6 info-title"> Nearest School : </div>
                             <div class="col-md-6 info-content"> {{Rank6_School}} </div>
                             <div class="col-md-6 info-title"> Metro Stop: </div>
-                            <div class="col-md-6 info-content"> {{Rank6_Metro}} away </div>
+                            <div class="col-md-6 info-content"> {{Rank6_Metro}} miles away </div>
                             <div class="col-md-6 info-title"> Bus Stop : </div>
-                            <div class="col-md-6 info-content"> {{Rank6_BusStop}} away </div>
+                            <div class="col-md-6 info-content"> {{Rank6_BusStop}} miles away </div>
                             <div class="col-md-6 info-title"> CommunityCenter: </div>
                             <div class="col-md-6 info-content"> {{Rank6_CommunityCenter}} </div>
                             <div class="col-md-6 info-title"> Nearest Library: </div>
                             <div class="col-md-6 info-content"> {{Rank6_Library}} </div>
-                            <div class="col-md-6 info-title"> Nearest Top Rated Restaurant: </div>
+                            <div class="col-md-6 info-title"> Top Rated Restaurant: </div>
                             <div class="col-md-6 info-content"> {{Rank6_Restaurant}} </div>
-                            <div class="col-md-6 info-title"> Nearest Top Rated Bars: </div>
+                            <div class="col-md-6 info-title"> Top Rated Bar: </div>
                             <div class="col-md-6 info-content"> {{Rank6_Bars}} </div>
+                            <div class="col-md-6 info-title"> More Restaurants: </div>
+                            <div class="col-md-6 info-content"> {{Rank6_MoreRestaurants}} </div>
+                            <div class="col-md-6 info-title"> More Bars: </div>
+                            <div class="col-md-6 info-content"> {{Rank6_MoreBars}} </div>
                         </div>
                     </div>
                 </div>
@@ -344,6 +381,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+        <!--
+    <script>
+        callSetTimeout();
+        function callSetTimeout(){
+            setTimeout(() => {
+                window.open('/',  '_self')
+            }, 3000);
+        }
+    </script>-->
 </body>
 
 </html>
