@@ -14,7 +14,7 @@ import numpy as np
 
 ## UPDATE ## 
 # your Google Maps API key
-your_key = "AIzaSyCnGsTD6xGUYWKVaRPGIVZjif-iIpUEyXc"
+your_key = ""
 
 # dictionary object of "area" and their latitudes and longitudes you want to look at
 # add whatever you want
