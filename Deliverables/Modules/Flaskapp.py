@@ -1,9 +1,9 @@
 """  This file creates the Flask application reuired to render the Webpage and display the final Listing to user """
 
-from flask import Flask, request, jsonify, render_template, redirect, flash, url_for, get_flashed_messages
-from Filter_Listings import PropertyFilter
-from Model import create_ranked_data
-from format_Listings import format_Listings
+from flask import Flask, request, render_template, redirect, flash
+from Modules.Filter_Listings import PropertyFilter
+from Modules.Model import create_ranked_data
+from Modules.format_Listings import format_Listings
 import time
 
 app = Flask(__name__)
@@ -157,9 +157,9 @@ def DSS_Form_Page2():
                                )
 
 
-@app.route('/redirect',methods=['GET', 'POST'])  # HomePage Url - Shows the user the questionnare
+@app.route('/',methods=['GET', 'POST'])  # HomePage Url - Shows the user the questionnare
 def redirect():
-    redirect('/')
+    return redirect("/")
 
 
 if __name__ == "__main__":

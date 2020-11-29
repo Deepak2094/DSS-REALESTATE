@@ -232,48 +232,6 @@ def evaluate_low_values(df, series):
     df[series] = df[series].apply(lambda x: low_values_important(min_val, max_val, x))
     return df
 
-#Evaluate selected listings - ensure they are in top percentile for top ranked consdieration
-def evaluation(weights, listings):
-    import operator
-    from scipy import stats
-    
-    ## Top 6 selections
-    top_ranked = listings.iloc[0:5]
-    #Considerations that are 
-    high_vals = ["size_in_sqft","RATING","Mean_Rating_restaurants","Mean_Rating_bars"] # fields where high vals are important
-    
-    considerations = weights
-    
-    try:
-        del considerations['neighbourhoodfactors']
-    except:
-        pass
-    #Highest value in unpacked weights
-    top_consideration_val = max(considerations.items(), key = operator.itemgetter(1))[1]
-    ##Find considerations that have that value
-    top_considerations = dict((k, v) for k, v in considerations.items() if v >= top_consideration_val)
-    pcts = {}
-    ##Loop through considerations
-    for consideration in top_considerations.keys():
-        consideration_rankings = []
-        for i in range(0,len(top_ranked)+1): #loop through first six
-            percentile = stats.percentileofscore(listings[consideration], listings[consideration].iloc[i])
-            if consideration not in high_vals:
-                percentile = 100 - percentile
-            consideration_rankings.append(percentile)
-        avg_consid_rank = sum(consideration_rankings) / len(consideration_rankings)
-        pcts[consideration] = avg_consid_rank
-    
-    ## Test if any of the average consideration rankings are above 70
-    
-    if any(x >= 70  for x in pcts.values()):
-        print("\n===================================================\n")
-        print("Listings Returned Align with User Rank Preference")
-        print("\n===================================================\n")
-    else:
-        print("\n===================================================\n")
-        print("Listing Rankings do not align with Ranked Preferences - Investigate")
-        print("\n===================================================\n")
 
 # Create the ranked listings dataset based on the weights from the user ratings
 def create_ranked_data(df, Environmental_Features):
@@ -308,9 +266,6 @@ def create_ranked_data(df, Environmental_Features):
     df_final = df_final.sort_values('user_value', ascending=False)
     df_final.reset_index(drop=True, inplace=True)
     Listings_Dict = df_final.to_dict()
-    
-    evaluation(unpacked_weights, df_final)
-    
     return Listings_Dict
 
 

@@ -12,7 +12,7 @@ def random_phone_num_generator():
     return '{}-{}-{}'.format(first, second, last)
 
 
-Agent_data = pd.read_csv("Inputs/Agents.csv")
+Agent_data = pd.read_csv("../Inputs/Agents.csv")
 
 
 def random_agent(df):
