@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title> DECISION SUPPORT SYSTEM FOR REAL ESTATE</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <style>
+    body {
+      background-color: #f2f2f2;
+    }
+
+    .initial-img {
+      width: 60%;
+      /* margin: 40px auto; */
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 0px;
+    }
+
+    /* .form-check {
+      margin-bottom: 15px;
+    } */
+
+    .col-md-12 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <img src="../static/House.jpg" class="img-fluid initial-img" alt="Responsive image">
+      </div>
+    </div>
+
+    <h1 class="mb-3"> Let’s find a home that’s perfect for you. </h1>
+    {% with messages = get_flashed_messages() %}
+	  {% if messages %}
+	    {% for message in messages %}
+		  <div class="alert alert-warning alert-dismissible" role="alert">
+		  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+			{{message}}
+		  </div>
+		{% endfor %}
+	  {% endif %}
+	{% endwith %}
+
+	{% block body %}{% endblock %}
+
+    <form action="{{ url_for('DSS_Form_Page1')}}" method="post">
+      <!------------------------ Q1 - Intrinsic Feature Bedroom Filter -------------------------->
+      <div class="row">
+        <div class="col-md-12">
+          <p> How many bedrooms are you looking for in your new home? </p>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bedroom" id="bedroomany" value="Any" checked>
+            <label class="form-check-label" for="bedroomany">
+              Any
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bedroom" id="bedroom1" value=1+>
+            <label class="form-check-label" for="bedroom1">
+              1+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bedroom" id="bedroom2" value="2+">
+            <label class="form-check-label" for="bedroom2">
+              2+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bedroom" id="bedroom3" value="3+">
+            <label class="form-check-label" for="bedroom3">
+              3+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bedroom" id="bedroom4" value="4+">
+            <label class="form-check-label" for="bedroom4">
+              4+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bedroom" id="bedroom5" value="5+">
+            <label class="form-check-label" for="bedroom5">
+              5+
+            </label>
+          </div>
+        </div>
+      </div>
+      <!------------------------ Q2 - Intrinsic Feature Bathroom Filter -------------------------->
+      <div class="row">
+        <div class="col-md-12">
+          <p> How many bathrooms are you looking for in your new home? </p>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bathroom" id="bathroomany" value="Any" checked>
+            <label class="form-check-label" for="bathroomany">
+              Any
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bathroom" id="bathroom1" value=1+>
+            <label class="form-check-label" for="bathroom1">
+              1+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bathroom" id="bathroom2" value="2+">
+            <label class="form-check-label" for="bathroom2">
+              2+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bathroom" id="bathroom3" value="3+">
+            <label class="form-check-label" for="bathroom3">
+              3+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bathroom" id="bathroom4" value="4+">
+            <label class="form-check-label" for="bathroom4">
+              4+
+            </label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="bathroom" id="bathroom5" value="5+">
+            <label class="form-check-label" for="bathroom5">
+              5+
+            </label>
+          </div>
+        </div>
+      </div>
+      <!------------------------ Q3 - Property Type Filter-------------------------->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="propertytype"> What would your ideal home be? </label>
+            <select class="form-control" style="width:300px" id="propertytype" name="propertyTypeName">
+              <option value="Any">Any </option>
+              <option value="Condo">Condo</option>
+              <option value="Multi Family Home">Multi Family Home</option>
+              <option value="Single Family Home">Single Family Home</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!------------------------ Q4 - House Price Filter -------------------------->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="propertytype"> What is the most you are willing to pay for your ideal home? </label>
+            <select class="form-control" style="width:300px" id="houseprice" name="housePriceName">
+              <option value="Any">Any Price </option>
+              <option value="Upto $100k">Up to $180k</option>
+              <option value="Upto $250k">Up to $350k</option>
+              <option value="Upto $500k">Up to $500k</option>
+              <option value="Upto $500k">Up to $700k</option>
+              <option value="Upto $500k">Up to $900k</option>
+              <option value="Upto $1M">Up to $1M</option>
+              <option value="Upto $1M">Up to $1.2M</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 mt-3 mb-5">
+          <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
