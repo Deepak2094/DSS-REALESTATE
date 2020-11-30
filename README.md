@@ -3,7 +3,7 @@ This repository contains codes for building the Decision support System for Real
 
 # Languages Used - Python 3.x and HTML
 
-# The Folder contains of the following Folder
+# The Folder contains the following Folders
   1) API Calls - This folder contains the python code to extract House Listing, Restuarant and Bars data in Arlington, VA
   2) Inputs - Consists of 4 Input data files filtered based on the distance 
   3) Modules - The folder consists of 4 python files to get the DSS Application up and running
