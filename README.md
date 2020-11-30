@@ -15,8 +15,7 @@ This repository contains codes for building the Decision support System for Real
     e) Templates - consists of 3 HTML Webapges 
     
 # How to Run the DSS Application ?
-
-Step 1 : Import all the Folders into any IDE - Spyder,Pycharm etc., (please maintain same folder structure)
+Step 1 : Import all the Folders into any IDE - Spyder,Pycharm etc., (please maintain same folder structure and install any dependent packages as needed)
 Step 2 : Run the Flaskapp.py script using.
 Step 3 : Go to the Local Sever location displayed in the output by clicking on it
           (OR)
