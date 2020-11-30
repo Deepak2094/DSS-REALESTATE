@@ -6,7 +6,7 @@ This repository contains codes for building the Decision support System for Real
 # The Folder contains of the following Folder
   1) API Calls - This folder contains the python code to extract House Listing, Restuarant and Bars data in Arlington, VA
   2) Inputs - Consists of 4 Input data files filtered based on the distance 
-  3) Modules - The folder consists of 4 python files to get the DSS Applicatio up and running
+  3) Modules - The folder consists of 4 python files to get the DSS Application up and running
     a)Filter_Listings.py - Filters the Input dataset based on the filters assigned by the user
     b)Model.py - Creates a ranked set of Listings based on the users preference
     c)format_Listings.py - formats the Listings data to make it presentable in the Front end (HTML Webpage)
