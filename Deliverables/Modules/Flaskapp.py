@@ -6,6 +6,7 @@ from Model import create_ranked_data
 from format_Listings import format_Listings
 import time
 
+
 app = Flask(__name__)
 app.secret_key = 'some_secret'
 session_data = {}
