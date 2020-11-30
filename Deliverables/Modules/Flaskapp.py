@@ -1,9 +1,9 @@
 """  This file creates the Flask application reuired to render the Webpage and display the final Listing to user """
 
 from flask import Flask, request, render_template, redirect, flash
-from Modules.Filter_Listings import PropertyFilter
-from Modules.Model import create_ranked_data
-from Modules.format_Listings import format_Listings
+from Filter_Listings import PropertyFilter
+from Model import create_ranked_data
+from format_Listings import format_Listings
 import time
 
 app = Flask(__name__)
