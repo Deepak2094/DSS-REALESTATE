@@ -6,7 +6,6 @@ from Model import create_ranked_data
 from format_Listings import format_Listings
 import time
 
-
 app = Flask(__name__)
 app.secret_key = 'some_secret'
 session_data = {}
@@ -45,7 +44,7 @@ def DSS_Form_Page2():
                                Property_Type=session_data['propertyTypeName'],
                                Bedroom_Filter=session_data["bedroom"],
                                Bathroom_Filter=session_data['bathroom'],
-                               Travel_Mode=int(float(session_data['distance'])),
+                               Travel_Mode=float(session_data['distance']),
                                housePrice=session_data['housePriceName'],
                                # Listings
                                Rank1_thumbnail=variables["Rank1_thumbnail"],

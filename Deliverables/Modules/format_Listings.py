@@ -44,8 +44,8 @@ def format_Listings(Listings_dict):
 
         variable_dict[f"Rank{i}_Bars"] = ','.join(
             [str(elem) for elem in Listings_dict["Top_5_Rated_bars"][i].split(';')[0:3]])
-       # variable_dict[f"Rank{i}_MoreRestaurants"] = ','.join(
-        #     [str(elem) for elem in Listings_dict["Top_5_Rated_restaurants"][i].split(';')[1:]])
-        # variable_dict[f"Rank{i}_MoreBars"] = ','.join(
-        #     [str(elem) for elem in Listings_dict["Top_5_Rated_bars"][i].split(';')[1:]])
+    # variable_dict[f"Rank{i}_MoreRestaurants"] = ','.join(
+    #     [str(elem) for elem in Listings_dict["Top_5_Rated_restaurants"][i].split(';')[1:]])
+    # variable_dict[f"Rank{i}_MoreBars"] = ','.join(
+    #     [str(elem) for elem in Listings_dict["Top_5_Rated_bars"][i].split(';')[1:]])
     return variable_dict
