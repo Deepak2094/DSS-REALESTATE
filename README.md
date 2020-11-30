@@ -15,19 +15,19 @@ This repository contains codes for building the Decision support System for Real
     e) Templates - consists of 3 HTML Webapges 
     
 # How to Run the DSS Application ?
-Step 1 : Import all the Folders into any IDE - Spyder,Pycharm etc., (please maintain same folder structure and install any dependent packages as needed)
-Step 2 : Run the Flaskapp.py script using.
-Step 3 : Go to the Local Sever location displayed in the output by clicking on it
+  Step 1 : Import all the Folders into any IDE - Spyder,Pycharm etc., (please maintain same folder structure and install any dependent packages as needed)
+  Step 2 : Run the Flaskapp.py script using.
+  Step 3 : Go to the Local Sever location displayed in the output by clicking on it
           (OR)
           Or type in the following address on any browser (http://127.0.0.1:5000/)
-Step 4 : Now, you will see the DSS Homepage
+  Step 4 : Now, you will see the DSS Homepage
 
 # Alternate Option - if there is no IDE
 
-Step 1 : Import all the Folders into any Location in your computer (please maintain same folder structure)
-Step 2: Open Terminal on Mac (or) Command Prompt on Windows OS
-Step 3: Type the following python3 /Users/deepak/Documents/DAEN/SYST 542/Project/Deliverables/Modules/Flaskapp.py (The location will change based on where its stored in your computer)
-Step 4 : Go to the Local Sever location displayed in the output by clicking on it
+  Step 1 : Import all the Folders into any Location in your computer (please maintain same folder structure)
+  Step 2: Open Terminal on Mac (or) Command Prompt on Windows OS
+  Step 3: Type the following python3 /Users/deepak/Documents/DAEN/SYST 542/Project/Deliverables/Modules/Flaskapp.py (The location will change based on where its      stored in your computer)
+  Step 4 : Go to the Local Sever location displayed in the output by clicking on it
           (OR)
           Or type in the following address on any browser (http://127.0.0.1:5000/)
-Step 5 : Now, you will see the DSS Homepage
+  Step 5 : Now, you will see the DSS Homepage
