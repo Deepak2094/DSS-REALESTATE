@@ -19,7 +19,7 @@ This repository contains codes for building the Decision support System for Real
   Step 2 : Run the Flaskapp.py script using.
   Step 3 : Go to the Local Sever location displayed in the output by clicking on it
           (OR)
-          Or type in the following address on any browser (http://127.0.0.1:5000/)
+          type in the following address on any browser (http://127.0.0.1:5000/)
   Step 4 : Now, you will see the DSS Homepage
 
 # Alternate Option - if there is no IDE
@@ -29,5 +29,5 @@ This repository contains codes for building the Decision support System for Real
   Step 3: Type the following python3 /Users/deepak/Documents/DAEN/SYST 542/Project/Deliverables/Modules/Flaskapp.py (The location will change based on where its      stored in your computer)
   Step 4 : Go to the Local Sever location displayed in the output by clicking on it
           (OR)
-          Or type in the following address on any browser (http://127.0.0.1:5000/)
+          type in the following address on any browser (http://127.0.0.1:5000/)
   Step 5 : Now, you will see the DSS Homepage
